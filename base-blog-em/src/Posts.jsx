@@ -32,7 +32,6 @@ export function Posts() {
     isError,
     error,
     isLoading,
-    isPreviousData
   } = useQuery(["posts", currentPage], () => fetchPosts(currentPage), {
     staleTime: 2000,
     keepPreviousData: true
@@ -50,7 +49,6 @@ export function Posts() {
   return (
     <>
       <ul>
-        이전 데이터? {isPreviousData.toString()}
         {data?.map((post) => (
           <li
             key={post.id}
