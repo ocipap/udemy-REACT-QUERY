@@ -15,7 +15,11 @@ export function useTreatments(): Treatment[] {
   const toast = useCustomToast();
 
   const fallback = [];
-  const { data = fallback } = useQuery(queryKeys.treatments, getTreatments);
+  const { data } = useQuery(queryKeys.treatments, getTreatments, {
+    staleTime: 600000,
+    cacheTime: 900000,
+    placeholderData: fallback,
+  });
 
   return data;
 }

@@ -23,6 +23,9 @@ const queryClient = new QueryClient({
       onError: (error: unknown) => {
         queryErrorHandler(error);
       },
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
     },
   },
 });
